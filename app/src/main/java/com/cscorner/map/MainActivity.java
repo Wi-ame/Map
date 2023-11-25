@@ -28,6 +28,7 @@ import com.google.firebase.FirebaseApp;
 public class MainActivity extends AppCompatActivity {
    GoogleSignInOptions gso ;
    GoogleSignInClient gsc;
+   Button email ;
     Button googleBtn ;
 
 
@@ -46,9 +47,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        email =findViewById(R.id.btnSignInWithEmail);
         Button Facebook = findViewById(R.id.facebook_logo);
-
+ email.setOnClickListener(new View.OnClickListener() {
+     @Override
+     public void onClick(View v) {
+         Intent intent =  new Intent(MainActivity.this, LoginActivity.class);
+         startActivity(intent);
+     }
+ });
 
         Drawable Drawable = ContextCompat.getDrawable(this, R.drawable.facebook_logo);
         Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_google_logo);
