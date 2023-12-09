@@ -22,9 +22,6 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 
-
-
-
 public class MainActivity extends AppCompatActivity {
    GoogleSignInOptions gso ;
    GoogleSignInClient gsc;
@@ -46,9 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
         email =findViewById(R.id.btnSignInWithEmail);
-        Button Facebook = findViewById(R.id.facebook_logo);
  email.setOnClickListener(new View.OnClickListener() {
      @Override
      public void onClick(View v) {
@@ -57,23 +52,16 @@ public class MainActivity extends AppCompatActivity {
      }
  });
 
-        Drawable Drawable = ContextCompat.getDrawable(this, R.drawable.facebook_logo);
         Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_google_logo);
         if (drawable != null) {
             drawable.setBounds(0, 0,100, 100);
             googleBtn.setCompoundDrawables(drawable, null, null, null);
         }
-        if (Drawable != null) {
-            Drawable.setBounds(0, 0,200, 200);
-            Facebook.setCompoundDrawables(Drawable, null, null, null);
-        }
-
     }
     private  void signIn() {
         Intent signINIntent =gsc.getSignInIntent();
         startActivityForResult(signINIntent,1000);
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -90,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     void navigatetoSecondActivity(){
         gsc.signOut();
         finish();
